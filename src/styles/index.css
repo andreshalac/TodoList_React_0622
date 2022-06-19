@@ -1,7 +1,6 @@
 
 .conteiner{
-width: 500px;
-height: 550px;
+width: 600px;
 display: flex;
 margin: auto;
 justify-content: center;
@@ -41,3 +40,8 @@ ul {
     flex-direction: column;
     font-size: 15px;
 }
+ .delete {
+    width: 20px;
+    height: 20px;
+    background-color: aqua;
+ }

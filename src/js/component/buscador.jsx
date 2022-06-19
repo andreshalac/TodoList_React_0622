@@ -13,7 +13,7 @@ const Buscador = () => {
        const newSearch= (text)
        setSearch ([...search, newSearch])
          }
-
+ 
        return (
 		<div className="col-12">
 	     <div className="mb-4">
@@ -22,14 +22,29 @@ const Buscador = () => {
             placeholder="Detalle de las tareas" onChange={handleText} />
             <button className="btn btn-success" onClick={buscarTarea}>Agregar</button>
          </div>
-         {search  ? <p> Tarea pendiente: {search} 
+         {search  ? <p> Tarea pendiente: 
                         <ul>
-                           {search.map (() => (
-                              <li onClick={() => newSearch} key= {[...search]} > </li>
+                           {search.map ((value, index) => (
+                          <li key={index}>
+                           {value}
+                           <button className="delete"onClick={ 
+                              () => {
+                               let Test = search.filter((TaskDone) =>{ 
+                                 return TaskDone != value;
+                                } )
+                                setSearch(Test)
+                                 console.log(Test);
+                              }
+                           }>
+                              
+                           </button>
+                          </li>
                            ))}
                         </ul>
                     </p>: ""}
+                   <label> {search.length}</label>
 		</div>
+
 	);
 }
     
